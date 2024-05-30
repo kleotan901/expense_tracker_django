@@ -1,8 +1,8 @@
-from income.views import income_type
+from income.views import IncomeView
 from django.urls import path
 
 app_name = "income"
 
 urlpatterns = [
-    path("types/", income_type, name="income-type-list")
+    path("types/", IncomeView.as_view(), name="income-list")
 ]

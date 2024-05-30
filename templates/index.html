@@ -4,11 +4,13 @@
 {% block content %}
   <h3>Income</h3>
   {% if income_list %}
+    <ul>
     {% for transaction in income_list %}
-      <p>{{ transaction.source }} + {{ transaction.amount }} {{ transaction.account.currency }}
+      <li>{{ transaction.source }} + {{ transaction.amount }} {{ transaction.account.currency }}
         ({{ transaction.transaction_date }})
-      </p>
+      </li>
     {% endfor %}
+    </ul>
     <p>Total income sum: + {{ total_income_sum }} </p>
   {% else %}
     <p>No income</p>
@@ -16,11 +18,13 @@
 
   <h3>Expense</h3>
   {% if expense_list %}
+    <ul>
     {% for transaction in expense_list %}
-      <p>{{ transaction.source }} - {{ transaction.amount }} {{ transaction.account.currency }}
+      <li>{{ transaction.source }} - {{ transaction.amount }} {{ transaction.account.currency }}
         ({{ transaction.transaction_date }})
-      </p>
+      </li>
     {% endfor %}
+    </ul>
     <p>Total expense sum: - {{ total_expense_sum }} </p>
   {% else %}
     <p>No income</p>
