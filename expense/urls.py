@@ -1,8 +1,8 @@
-from expense.views import expense_type
+from expense.views import ExpenseView
 from django.urls import path
 
 app_name = "expense"
 
 urlpatterns = [
-    path("types/", expense_type, name="expense-type-list")
+    path("types/", ExpenseView.as_view(), name="expense-list")
 ]

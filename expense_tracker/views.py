@@ -7,8 +7,8 @@ from income.models import Income
 
 
 def index(request: HttpResponse):
-    expense_list = Expense.objects.all()
-    income_list = Income.objects.all()
+    expense_list = Expense.objects.all().select_related()
+    income_list = Income.objects.all().select_related()
     total_expense_sum = expense_list.aggregate(Sum("amount"))["amount__sum"]
     total_income_sum = income_list.aggregate(Sum("amount"))["amount__sum"]
     context = {

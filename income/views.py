@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
 
 from income.models import Income, IncomeType
 
 
-def income_type(request: HttpResponse):
-    income_type_list = IncomeType.objects.all()
-    context = {
-        "type_list": income_type_list
-    }
-    return render(request, "../templates/income/income.html", context)
+class IncomeTypeView(generic.ListView):
+    model = IncomeType
+
+
+class IncomeView(generic.ListView):
+    model = Income
+    template_name = "income/income.html"
+    context_object_name = "income_list"

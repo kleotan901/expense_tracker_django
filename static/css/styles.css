@@ -14,7 +14,15 @@ body, html {
     padding: 0;
     font-family: 'Arial', sans-serif;
     height: 100%;
-    background: linear-gradient(to bottom, #e1e1e3, #7f858c, #354354); /* Фон сайта */
+    background: linear-gradient(to bottom, #e1e1e3, #b9c6d5, #abbfd5); /* Фон сайта */
+}
+
+ul{
+    padding: 0;
+}
+
+li{
+    list-style: none;
 }
 
 /* Sidebar container */
