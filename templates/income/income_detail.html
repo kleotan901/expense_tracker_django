@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3> Income 
+    <small class="small">({{ income.transaction_date|date:"d-m-Y H:i" }})</small></h3>
+  <p><strong>Amount: </strong>+ {{ income.amount }}</p>
+  <p><strong>Category: </strong>{{ income.category }} </p>
+  <p><strong>Description: </strong>{{ income.description }} </p>
+  <p><strong>Account:</strong>{{ income.account }} </p>
+
+{% endblock %}

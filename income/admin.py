@@ -1,5 +1,5 @@
 from django.contrib import admin
-from income.models import Income, IncomeType
+from income.models import Income, IncomeCategory
 
-admin.site.register(IncomeType)
+admin.site.register(IncomeCategory)
 admin.site.register(Income)

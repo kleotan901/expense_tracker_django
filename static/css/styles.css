@@ -25,6 +25,10 @@ li{
     list-style: none;
 }
 
+.small {
+  font-size: 0.5em;
+}
+
 /* Sidebar container */
 .sidebar {
     width: 250px;

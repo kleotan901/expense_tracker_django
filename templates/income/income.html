@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1> Income list</h1>
+  <h3> Income list: </h3>
   <ul>
     {% for income in income_list %}
-      <li>
-        {{ income.transaction_date|date:"d-m-Y H:i" }} {{ income.source }} + {{ income.amount }} {{ income.account.currency }}
-      </li>
+      <li><a href="{{ income.get_absolute_url }}">
+        {{ income.transaction_date|date:"d-m-Y H:i" }} {{ income.source }}
+        + {{ income.amount }} {{ income.account.currency }}
+      </a></li>
     {% endfor %}
   </ul>
+  
 {% endblock %}

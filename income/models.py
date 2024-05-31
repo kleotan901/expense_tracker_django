@@ -1,16 +1,21 @@
 from django.db import models
+from django.urls import reverse
+
 from account.models import Account
 
 
-class IncomeType(models.Model):
-    source = models.CharField(max_length=255)
+class IncomeCategory(models.Model):
+    category = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = "Income Categories"
 
     def __str__(self):
-        return self.source
+        return self.category
 
 
 class Income(models.Model):
-    source = models.ForeignKey(IncomeType, on_delete=models.CASCADE)
+    category = models.ForeignKey(IncomeCategory, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=100, decimal_places=2)
     transaction_date = models.DateTimeField("transaction date")
     description = models.CharField(max_length=255, null=True, blank=True,)
@@ -20,4 +25,7 @@ class Income(models.Model):
         ordering = ("transaction_date",)
 
     def __str__(self):
-        return f"{self.source} - {self.amount}"
+        return f"{self.category} - {self.amount}"
+
+    def get_absolute_url(self):
+        return reverse("income:income-detail", args=[str(self.pk)])
